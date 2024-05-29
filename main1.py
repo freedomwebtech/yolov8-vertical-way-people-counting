@@ -28,12 +28,6 @@ count = 0
 
 
 tracker=Tracker()
-list1=[]
-cx1=568
-cx2=528
-offset=6
-going_up={}
-list1=[]
 while True:    
     ret, frame = cap.read()
     count += 1
@@ -63,19 +57,9 @@ while True:
         x3,y3,x4,y4,id=bbox
         cx = int(x3 + x4) // 2
         cy = int(y3 + y4) // 2
-        if cx1<(cx+offset) and cx1>(cx-offset):
-           going_up[id]=(cx,cy)
-        if id in going_up:
-            if cx2<(cx+offset) and cx2>(cx-offset):
-               cv2.circle(frame,(cx,cy),4,(255,0,0),-1)
-               cv2.rectangle(frame, (x3, y3), (x4, y4), (0, 255, 0), 2)
-               cvzone.putTextRect(frame,f'{id}',(x4,y4),1,1)
-               if list1.count(id)==0:
-                  list1.append(id)
-#        cvzone.putTextRect(frame,f'{id}',(x4,y4),1,1)   
-        cv2.line(frame,(568,27),(568,475),(255,0,255),2)   
-        cv2.line(frame,(528,26),(528,474),(0,0,255),2)
-        print(len(list1))
+        cv2.circle(frame,(cx,cy),4,(255,0,0),-1)
+        cv2.rectangle(frame, (x3, y3), (x4, y4), (0, 255, 0), 2)
+        cvzone.putTextRect(frame,f'{id}',(x4,y4),1,1)
         cv2.imshow("RGB", frame)
         if cv2.waitKey(1) & 0xFF == 27:
            break
