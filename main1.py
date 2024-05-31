@@ -2,7 +2,6 @@ import cv2
 import pandas as pd
 from ultralytics import YOLO
 import cvzone
-import numpy as np
 from tracker import*
 from vidgear.gears import CamGear
 
