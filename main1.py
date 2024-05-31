@@ -51,9 +51,7 @@ while True:
         
         d = int(row[5])
         c = class_list[d]
-        if 'person' in c:
-
-            list.append([x1,y1,x2,y2])
+        list.append([x1,y1,x2,y2])
     bbox_idx=tracker.update(list)
     for bbox in bbox_idx:
         x3,y3,x4,y4,id=bbox
